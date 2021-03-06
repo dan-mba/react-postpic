@@ -6,6 +6,7 @@ function Input() {
   let [type, setType] = useState("");
   let [data, setData] = useState<ArrayBuffer | string | null | undefined>(null);
   let [img, setImg] = useState<string | undefined>(undefined);
+  let [txt, setTxt] = useState<string | undefined>(undefined);
 
   function onFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     setType(e.target.files![0].type);
@@ -16,6 +17,14 @@ function Input() {
     }
     reader.readAsArrayBuffer(e.target.files![0]);
   }
+  
+  function readJson(data: Blob) {
+    const reader = new FileReader();
+    reader.onload = () => {
+      setTxt(reader.result as string);
+    }
+    reader.readAsText(data);
+  }
 
   function onClick() {
     axios.post(endpoint, data, {
@@ -24,7 +33,11 @@ function Input() {
       },
       responseType: 'blob'
     }).then(function (res) {
-      setImg(URL.createObjectURL(res.data));
+      if (res.headers['content-type'].includes('image')) {
+        setImg(URL.createObjectURL(res.data));
+      } else {
+        readJson(res.data);
+      }
     }).catch(function (e) {
       console.log(e);
     });
@@ -40,6 +53,7 @@ function Input() {
         }
       </form>
       <img src={img} alt="" />
+      <p>{txt}</p>
     </div>
   );
 };
