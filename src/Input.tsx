@@ -6,7 +6,7 @@ function Input() {
   let [type, setType] = useState("");
   let [data, setData] = useState<ArrayBuffer | string | null | undefined>(null);
   let [img, setImg] = useState<string | undefined>(undefined);
-  let [txt, setTxt] = useState<string | undefined>(undefined);
+  let [txt, setTxt] = useState<string>("");
 
   function onFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     setType(e.target.files![0].type);
@@ -53,7 +53,7 @@ function Input() {
         }
       </form>
       <img src={img} alt="" />
-      <p>{txt}</p>
+      <pre>{txt? JSON.stringify(JSON.parse(txt!),null,2) : null}</pre>
     </div>
   );
 };
