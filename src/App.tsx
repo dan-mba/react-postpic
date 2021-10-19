@@ -1,6 +1,7 @@
+import React, {ReactElement} from 'react';
 import Input from './Input';
 
-function App() {
+function App(): ReactElement {
   return (
     <div className="App">
       <Input />
