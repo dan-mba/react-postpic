@@ -1,12 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, ReactElement} from 'react';
 import axios from 'axios';
 import {endpoint} from './api/endpoint';
 
-function Input() {
-  let [type, setType] = useState("");
-  let [data, setData] = useState<ArrayBuffer | string | null | undefined>(null);
-  let [img, setImg] = useState<string | undefined>(undefined);
-  let [txt, setTxt] = useState<string>("");
+function Input():ReactElement {
+  const [type, setType] = useState("");
+  const [data, setData] = useState<ArrayBuffer | string | null | undefined>(null);
+  const [img, setImg] = useState<string | undefined>(undefined);
+  const [txt, setTxt] = useState<string>("");
 
   function onFileChange(e: React.ChangeEvent<HTMLInputElement>) {
     setType(e.target.files![0].type);
@@ -36,7 +36,7 @@ function Input() {
       if (res.headers['content-type'].includes('image')) {
         setImg(URL.createObjectURL(res.data));
       } else {
-        readJson(res.data);
+        readJson(res.data as Blob);
       }
     }).catch(function (e) {
       console.log(e);
@@ -56,6 +56,6 @@ function Input() {
       <pre>{txt? JSON.stringify(JSON.parse(txt!),null,2) : null}</pre>
     </div>
   );
-};
+}
 
 export default Input;

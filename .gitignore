@@ -24,3 +24,5 @@ yarn-error.log*
 
 #API endpoint
 /src/api/endpoint.ts
+
+/.vscode
