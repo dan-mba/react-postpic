@@ -1,1 +1,1 @@
-export const endpoint: string = "https://api.url.here";
+export default "https://api.url.here";

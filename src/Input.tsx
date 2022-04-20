@@ -1,6 +1,6 @@
-import React, {useState, ReactElement} from 'react';
+import {useState, ReactElement} from 'react';
 import axios from 'axios';
-import {endpoint} from './api/endpoint';
+import endpoint from './api/endpoint';
 
 function Input():ReactElement {
   const [type, setType] = useState("");
