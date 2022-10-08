@@ -1,5 +1,4 @@
 import {useState, ReactElement} from 'react';
-import axios from 'axios';
 import endpoint from './api/endpoint';
 
 function Input():ReactElement {
@@ -17,30 +16,33 @@ function Input():ReactElement {
     }
     reader.readAsArrayBuffer(e.target.files![0]);
   }
-  
-  function readJson(data: Blob) {
-    const reader = new FileReader();
-    reader.onload = () => {
-      setTxt(reader.result as string);
-    }
-    reader.readAsText(data);
-  }
 
-  function onClick() {
-    axios.post(endpoint, data, {
-      headers: {
-        'Content-Type': type
-      },
-      responseType: 'blob'
-    }).then(function (res) {
-      if (res.headers['content-type'].includes('image')) {
-        setImg(URL.createObjectURL(res.data));
-      } else {
-        readJson(res.data as Blob);
+  async function onClick() {
+    try{
+      const resp = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': type
+        },
+        body: data
+      })
+
+      if (!resp.ok) {
+        setTxt(resp.statusText);
+        return;
       }
-    }).catch(function (e) {
+    
+      if (resp.headers.get('content-type')?.includes('image')) {
+        const blob = await resp.blob()
+        setImg(URL.createObjectURL(blob));
+      } else {
+         const json = await resp.json();
+         setTxt(JSON.stringify(json,null,2));
+
+      }
+    } catch(e) {
       console.log(e);
-    });
+    }
   }
 
   return (
@@ -53,7 +55,7 @@ function Input():ReactElement {
         }
       </form>
       <img src={img} alt="" />
-      <pre>{txt? JSON.stringify(JSON.parse(txt!),null,2) : null}</pre>
+      <pre>{txt}</pre>
     </div>
   );
 }
