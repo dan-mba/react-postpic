@@ -36,8 +36,8 @@ function Input():ReactElement {
         const blob = await resp.blob()
         setImg(URL.createObjectURL(blob));
       } else {
-         const json = await resp.json();
-         setTxt(JSON.stringify(json,null,2));
+        const json = await resp.json();
+        setTxt(JSON.stringify(json,null,2));
 
       }
     } catch(e) {
