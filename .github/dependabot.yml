@@ -8,4 +8,8 @@ updates:
     schedule:
       interval: "weekly"
       day: "wednesday"
-
+    groups:
+      eslint:
+        patterns:
+          - "eslint*"
+          - "@typescript-eslint*"
