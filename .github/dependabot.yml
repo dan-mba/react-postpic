@@ -12,4 +12,6 @@ updates:
       lint:
         patterns:
           - "eslint*"
-          - "@typescript-eslint*"
+          - "@eslint*"
+          - "globals"
+          - "typescript-eslint"
