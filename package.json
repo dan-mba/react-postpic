@@ -15,7 +15,7 @@
     "eslint": "^8.57.0",
     "eslint-plugin-react": "^7.34.3",
     "globals": "^15.6.0",
-    "typescript": "^5.4.5",
+    "typescript": "^5.5.2",
     "typescript-eslint": "^7.14.1",
     "vite": "^5.3.1",
     "vite-plugin-html": "^3.2.0"
