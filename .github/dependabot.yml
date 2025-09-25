@@ -8,6 +8,8 @@ updates:
     schedule:
       interval: "weekly"
       day: "wednesday"
+    cooldown:
+      default-days: 1
     groups:
       lint:
         patterns:
