@@ -4,11 +4,11 @@
   "private": true,
   "type": "module",
   "dependencies": {
-    "react": "^19.2.6",
-    "react-dom": "^19.2.6"
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
-    "@types/react": "^19.2.14",
+    "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
     "@vitejs/plugin-react": "^6.0.2",
     "eslint": "^9.39.4",
@@ -16,7 +16,7 @@
     "globals": "^17.6.0",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.61.1",
-    "vite": "^8.0.11",
+    "vite": "^8.1.1",
     "vite-plugin-html": "^3.2.2"
   },
   "scripts": {
@@ -35,5 +35,5 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "pnpm@11.1.2+sha512.415a1cc25974731e75455c1468371be74c5aa5fb7621b50d4056d222451609f11412f23fd602e6169f1e060466641f798597e1be961a10688836a67b16569499"
+  "packageManager": "pnpm@11.9.0+sha512.bd682d5d03fe525ef7c9fd6780c6884d1e756ac4c9c9fe00c538782824310dcf90e3ddc4f53835f06dfaebd5085e41855e0bcbb3b60de2ac5bbab89e5036f03b"
 }
