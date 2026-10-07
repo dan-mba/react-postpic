@@ -8,15 +8,16 @@
     "react-dom": "^19.3.0"
   },
   "devDependencies": {
+    "@eslint-react/eslint-plugin": "^5.24.6",
+    "@eslint/js": "^10.0.1",
     "@types/react": "^19.3.0",
     "@types/react-dom": "^19.3.0",
     "@vitejs/plugin-react": "^6.1.1",
-    "eslint": "^9.39.5",
-    "eslint-plugin-react": "^7.37.5",
+    "eslint": "^10.12.0",
     "globals": "^17.12.0",
     "typescript": "^6.0.3",
     "typescript-eslint": "^8.70.0",
-    "vite": "^8.3.0",
+    "vite": "^8.3.3",
     "vite-plugin-html": "^3.2.2"
   },
   "scripts": {
@@ -35,5 +36,5 @@
       "last 1 safari version"
     ]
   },
-  "packageManager": "pnpm@12.4.1"
+  "packageManager": "pnpm@12.9.1"
 }
